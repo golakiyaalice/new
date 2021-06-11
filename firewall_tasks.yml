@@ -1,5 +1,4 @@
 ---
-
 - name: Install Firewalld
   yum:
     name: firewalld
@@ -44,4 +43,3 @@
   loop_control:
     loop_var: __udp_port
 
-...
