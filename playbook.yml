@@ -20,7 +20,8 @@
       vars:
         firewall_services:
           - mysql
-    - debug: 
+    - name: Print Mysql server setup Status
+      debug: 
         msg: "Start Mysql server setup"
     - name: Install mysql
       yum: 
@@ -53,7 +54,8 @@
         name: "{{  mysql_info.database }}"
         state: import
         target: "/tmp/{{ mysql_info.backupfile }}"
-    - debug: 
+    - name: Print Mysqp Server Setup Status
+      debug: 
         msg: "Finished Mysql server setup"
  
 - name: Play to setup apache servers
@@ -85,7 +87,8 @@
         firewall_tcp_ports:
           - 8080
 
-    - debug: 
+    - name: Print Apache Server Status
+      debug: 
         msg: "Start Apache server setup"
     - name: Install apache server
       yum:
@@ -124,7 +127,8 @@
       loop:
         - httpd_can_network_connect_db
         - httpd_can_network_connect    
-    - debug: 
+    - name: Print Apache Server setup Status
+      debug: 
         msg: "Finished Apache server setup"
 
 - name: Play to setup Haproxy
@@ -149,7 +153,8 @@
           - http
         firewall_tcp_ports:
           - 5000
-    - debug: 
+    - name: Print HAproxy server setup status
+      debug: 
         msg: "Start HAproxy server setup"
     - name: Install HAproxy
       yum: 
@@ -172,7 +177,8 @@
       loop: "{{ haproxy_services }}"
       loop_control:
         loop_var: __service
-    - debug: 
+    - name: Print HAproxy server setup status
+      debug: 
         msg: "Finished HAproxy server setup"
 
 ...
