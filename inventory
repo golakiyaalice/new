@@ -1,5 +1,15 @@
-[frontends]
-
-[apps]
-
-[appdbs]
+[all]
+ 
+satellite.example.com ansible_host=192.168.50.13
+ 
+control.example.com ansible_host=192.168.50.235
+[ungrouped]
+[satellites]
+ 
+satellite.example.com ansible_host=192.168.50.13
+[bastions]
+ 
+control.example.com ansible_host=192.168.50.235
+[controls]
+ 
+control.example.com ansible_host=192.168.50.235
