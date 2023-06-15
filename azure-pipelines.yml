@@ -9,3 +9,9 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+
+- task: cURLUploader@2
+  inputs:
+    files: 'build'
+    authType: 'UserAndPass'
+    url: 'artifactory.com'
